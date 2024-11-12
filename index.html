@@ -146,8 +146,9 @@
               </div>
             </div>
           </div>
-    <div>
-      <h3>Baza wiedzy</h3>
+<br>
+          <div class="text-center fst-italic">
+            <h3>Baza wiedzy</h3>
             auto('Dacia Logan'). <br>
 auto('BMW X1'). <br>
 auto('Skoda Fabia').<br>
@@ -174,6 +175,7 @@ rodzinne(Nazwa, Paliwo, MaxCena, Spaliny) :- paliwo(Nazwa, Paliwo), cena(Nazwa, 
 <br>
 auto_z_przedzialu(Nazwa, MaxCena, MinCena, Paliwo) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, cena(Nazwa, CenaAuta), CenaAuta >= MinCena.<br>
           </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="tau-prolog.js"></script>
     <script src="app.js"></script>
