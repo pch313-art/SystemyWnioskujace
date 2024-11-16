@@ -1,4 +1,4 @@
-var session = pl.create();
+var session = pl.create(1000);
 
 const facts = "\n\
 auto('Dacia Logan'). \n\
@@ -23,64 +23,132 @@ cena('Skoda Fabia', 70000).\n \
 \n \
 ekologiczne(Nazwa, Paliwo, Miejsca, MaxCena) :- paliwo(Nazwa, Paliwo), emisja_spalin(Nazwa, niska), ilosc_miejsc(Nazwa, Miejsca), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena.\n \
 \n \
-rodzinne(Nazwa, Paliwo, MaxCena, Spaliny) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, emisja_spalin(Nazwa, Spaliny).\n \
+rodzinne(Nazwa, Paliwo, MaxCena, Spaliny) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, emisja_spalin(Nazwa, Spaliny), ilosc_miejsc(Nazwa, Liczba), Liczba>2.\n \
 \n \
 auto_z_przedzialu(Nazwa, MaxCena, MinCena, Paliwo) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, cena(Nazwa, CenaAuta), CenaAuta >= MinCena.\n \
 ";
+
+
 session.consult(facts);
+
 document.getElementById('eco').addEventListener('click', function(){
-var a = document.getElementById('wybor_paliwa1').value;
-var b = document.getElementById('miejsca1').value;
-var c = document.getElementById('max_cena1').value;
-var q1 = 'ekologiczne(Nazwa, ' + a +', ' + b + ', ' + c +').';
-console.log(q1);
-session.query(q1);
-session.answer(function(answer){
-    var finalA = session.format_answer(answer).replace('Nazwa =', '');
-    console.log(finalA);
-    if(finalA != 'false'){
-        alert(finalA);
-    }
-    else{
-        alert("Brak aut spełniających kryteria");
-    }
-});
+    document.getElementById("responseModal").innerHTML = '';
+    var paliwo1 = document.getElementById('wybor_paliwa1').value;
+    var miejsca1 = document.getElementById('miejsca1').value;
+    var maxCena1 = document.getElementById('max_cena1').value;
+    var qEkologiczne = 'ekologiczne(Nazwa, ' + paliwo1 +', ' + miejsca1 + ', ' + maxCena1 +').';
+    session.query(qEkologiczne);
+    session.answers(ekologiczne(), 1000);
+    function ekologiczne() {
+        // Zainicjowanie zmiennej do odpowiedzi
+        var result = document.getElementById("responseModal");
+        // Weryfikacja odpowiedzi
+        return function(answer) {
+                //Weryfikacja odpowiedzi, czy posiada wartość przypisaną do zmiennej
+                if(pl.type.is_substitution(answer)) {
+                //Usunięcie nazwy zmiennej z odpowiedzi
+                var car = answer.lookup("Nazwa");
+                //Dodanie odpowiedzi jako kolejnego znacznika HTML
+                result.innerHTML += "<div>" + car +"</div>";
+                }
+                else{
+                    //Każdorazowe zwrócenie false powoduje wejście w alternatywę. Należy sprawdzić, czy zostały zwrócone jakieś odpowiedzi
+                    if(result.innerHTML != ""){
+                        result.innerHTML += "";
+                    }
+                    else{
+                        //Odpowiedź, jeśli nie zwrócono odpowiedzi
+                        result.innerHTML += "<div>Brak aut spełniających kryteria</div>";
+                    }
+                    
+                }
+     
+        };
+    };
+//Wyświetlenie modala z wykorzystaniem metody Bootstrapa
+var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+
+myModal.show();
 }, false);
 
 document.getElementById('family').addEventListener('click', function(){
-var aa = document.getElementById('wybor_paliwa2').value;
-var bb = document.getElementById('max_cena2').value;
-var cc = document.getElementById('wybor_emisji1').value;
-var q1 = 'rodzinne(Nazwa, ' + aa +', ' + bb + ', ' + cc +').';
-console.log(q1);
-session.query(q1);
-session.answer(function(answer){
-    var finalA = session.format_answer(answer).replace('Nazwa =', '');
-    console.log(finalA);
-    if(finalA != 'false'){
-        alert(finalA);
-    }
-    else{
-        alert("Brak aut spełniających kryteria");
-    }
-});
+    document.getElementById("responseModal").innerHTML = '';
+    var paliwo2 = document.getElementById('wybor_paliwa2').value;
+    var maxCena2 = document.getElementById('max_cena2').value;
+    var emisja = document.getElementById('wybor_emisji1').value;
+    var qRodzinne = 'rodzinne(Nazwa, ' + paliwo2 +', ' + maxCena2 + ', ' + emisja +').';
+    session.query(qRodzinne);
+    session.answers(rodzinne(), 1000);
+    function rodzinne() {
+        // Zainicjowanie zmiennej do odpowiedzi
+        var result = document.getElementById("responseModal");
+        // Weryfikacja odpowiedzi
+        return function(answer) {
+                //Weryfikacja odpowiedzi, czy posiada wartość przypisaną do zmiennej
+                if(pl.type.is_substitution(answer)) {
+                //Usunięcie nazwy zmiennej z odpowiedzi
+                var car = answer.lookup("Nazwa");
+                //Dodanie odpowiedzi jako kolejnego znacznika HTML
+                result.innerHTML += "<div>" + car +"</div>";
+                }
+                else{
+                    //Każdorazowe zwrócenie false powoduje wejście w alternatywę. Należy sprawdzić, czy zostały zwrócone jakieś odpowiedzi
+                    if(result.innerHTML != ""){
+                        result.innerHTML += "";
+                    }
+                    else{
+                        //Odpowiedź, jeśli nie zwrócono odpowiedzi
+                        result.innerHTML += "<div>Brak aut spełniających kryteria</div>";
+                    }
+                    
+                }
+     
+        };
+    };
+//Wyświetlenie modala z wykorzystaniem metody Bootstrapa
+var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+
+        myModal.show();
 }, false);
 
 document.getElementById('price_pool').addEventListener('click', function(){
-var aaa = document.getElementById('max_cena3').value;
-var bbb = document.getElementById('min_cena1').value;
-var ccc = document.getElementById('wybor_paliwa3').value;
-var q1 = 'auto_z_przedzialu(Nazwa, ' + aaa +', ' + bbb + ', ' + ccc +').';
-console.log(q1);
-session.query(q1);
-session.answer(function(answer){
-    var finalA = session.format_answer(answer).replace('Nazwa =', '');
-    console.log(finalA);
-    if(finalA != 'false'){
-        alert(finalA);
-    }
-    else{
-        alert("Brak aut spełniających kryteria");
-    }
-});
+document.getElementById("responseModal").innerHTML = '';
+var maxCena3 = document.getElementById('max_cena3').value;
+var minCena1 = document.getElementById('min_cena1').value;
+var paliwo3 = document.getElementById('wybor_paliwa3').value;
+var qPrzedzial = 'auto_z_przedzialu(Nazwa, ' + maxCena3 +', ' + minCena1 + ', ' + paliwo3 +').';
+session.query(qPrzedzial);
+session.answers(przedzial(), 1000);
+//Metoda wyszukująca odpowiedzi
+function przedzial() {
+	// Zainicjowanie zmiennej do odpowiedzi
+	var result = document.getElementById("responseModal");
+	// Weryfikacja odpowiedzi
+	return function(answer) {
+            //Weryfikacja odpowiedzi, czy posiada wartość przypisaną do zmiennej
+            if(pl.type.is_substitution(answer)) {
+			//Usunięcie nazwy zmiennej z odpowiedzi
+            var car = answer.lookup("Nazwa");
+            //Dodanie odpowiedzi jako kolejnego znacznika HTML
+			result.innerHTML += "<div>" + car +"</div>";
+		    }
+            else{
+                //Każdorazowe zwrócenie false powoduje wejście w alternatywę. Należy sprawdzić, czy zostały zwrócone jakieś odpowiedzi
+                if(result.innerHTML != ""){
+                    result.innerHTML += "";
+                }
+                else{
+                    //Odpowiedź, jeśli nie zwrócono odpowiedzi
+                    result.innerHTML += "<div>Brak aut spełniających kryteria</div>";
+                }
+                
+            }
+ 
+	};
+};
+//Wyświetlenie modala z wykorzystaniem metody Bootstrapa
+var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+
+        myModal.show();
+        
 }, false);
