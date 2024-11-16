@@ -30,7 +30,7 @@ auto_z_przedzialu(Nazwa, MaxCena, MinCena, Paliwo) :- paliwo(Nazwa, Paliwo), cen
 
 
 session.consult(facts);
-
+//Dodanie akcji po kliknięciu przycisku na pierwszym formularzu
 document.getElementById('eco').addEventListener('click', function(){
     document.getElementById("responseModal").innerHTML = '';
     var paliwo1 = document.getElementById('wybor_paliwa1').value;
@@ -70,7 +70,7 @@ var myModal = new bootstrap.Modal(document.getElementById('myModal'));
 
 myModal.show();
 }, false);
-
+//Dodanie akcji po kliknięciu przycisku na drugim formularzu
 document.getElementById('family').addEventListener('click', function(){
     document.getElementById("responseModal").innerHTML = '';
     var paliwo2 = document.getElementById('wybor_paliwa2').value;
@@ -110,7 +110,7 @@ var myModal = new bootstrap.Modal(document.getElementById('myModal'));
 
         myModal.show();
 }, false);
-
+//Dodanie akcji po kliknięciu przycisku na trzecim formularzu
 document.getElementById('price_pool').addEventListener('click', function(){
 document.getElementById("responseModal").innerHTML = '';
 var maxCena3 = document.getElementById('max_cena3').value;
