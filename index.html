@@ -12,23 +12,23 @@
         <div class="text-center fst-italic">
             <h1>Wyszukiwarka aut</h1>
          </div>
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionForm">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   Wyszukaj najbardziej ekologiczne auto zgodnie z własnymi preferencjami
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionForm">
                 <div class="accordion-body">
                   <div class="text-center fst-italic">
                    <h3>Formularz do wyszukania ekologicznego auta</h3>
                 </div>
     <!--Formularz pierwszej strony-->            
-                    <form>
+                    
                     <div class="mb-3">
                         <label for="wybor_paliwa1" class="form-label">Wybierz typ paliwa</label>
-                        <select class="form-select" aria-label="Wybór paliwa" id="wybor_paliwa1" required>
+                        <select class="form-select" aria-label="Wybór paliwa" id="wybor_paliwa1"  >
                         <option value="benzyna">Benzyna</option>
                         <option value="diesel">Diesel</option>
                         <option value="ev">Elektryczny</option>
@@ -37,31 +37,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="miejsca1" class="form-label">Wybierz ilość miejsc</label>
-                        <input type="number" class="form-control" id="miejsca1" min="0" max="5" placeholder="0" required>
+                        <input type="number" class="form-control" id="miejsca1" min="0" max="5" placeholder="0" >
                     </div>
                     <div class="mb-3">
                         <label for="max_cena1" class="form-label">Podaj maksymalną cenę</label>
-                        <input type="number" class="form-control" id="max_cena1" placeholder="0" required>
+                        <input type="number" class="form-control" id="max_cena1" placeholder="0" >
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-primary" type="submit" id="eco">Wyszukaj</button>
+                        <button class="btn btn-primary" id="eco">Wyszukaj</button>
                       </div>
-                   </form>
-                   <!--Modal do odpowiedzi-->
-                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          ...
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                 <!--Koniec definicji modala-->
+                   
+                   
                 </div>
               </div>
             </div>
@@ -71,16 +57,16 @@
                   Wyszukaj rodzinne auto zgodne z Twoim budżetem
                 </button>
               </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionForm">
                 <div class="accordion-body">
                     <div class="text-center fst-italic">
                         <h3>Formularz do wyszukania rodzinnego auta</h3>
                      </div>
     <!--Formularz drugiej strony-->                 
-                         <form>
+                         
                          <div class="mb-3">
                              <label for="wybor_paliwa2" class="form-label">Wybierz typ paliwa</label>
-                             <select class="form-select" aria-label="Wybór paliwa" id="wybor_paliwa2" required>
+                             <select class="form-select" aria-label="Wybór paliwa" id="wybor_paliwa2" >
                              <option value="benzyna">Benzyna</option>
                              <option value="diesel">Diesel</option>
                              <option value="ev">Elektryczny</option>
@@ -89,7 +75,7 @@
                          </div>
                          <div class="mb-3">
                             <label for="wybor_emisji1" class="form-label">Wybierz wysokość emisji spalin</label>
-                            <select class="form-select" aria-label="Wybór paliwa" id="wybor_emisji1" required>
+                            <select class="form-select" aria-label="Wybór paliwa" id="wybor_emisji1" >
                             <option value="niska">Niska</option>
                             <option value="srednia">Średnia</option>
                             <option value="wysoka">Wysoka</option>
@@ -97,13 +83,13 @@
                          </div>
                          <div class="mb-3">
                              <label for="max_cena2" class="form-label">Podaj maksymalną cenę</label>
-                             <input type="number" class="form-control" id="max_cena2" placeholder="0" required>
+                             <input type="number" class="form-control" id="max_cena2" placeholder="0" >
                          </div>
                          <div class="col-12">
-                             <button class="btn btn-primary" type="submit" id="family">Wyszukaj</button>
+                             <button class="btn btn-primary" id="family">Wyszukaj</button>
                            </div>
-                        </form>
-                        <div id="respond2"></div>
+                        
+                        
                 </div>
               </div>
             </div>
@@ -113,16 +99,16 @@
                   Sprawdź, co oferuje rynek
                 </button>
               </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionForm">
                 <div class="accordion-body">
                     <div class="text-center fst-italic">
                         <h3>Formularz do wyszukania auta z przedziału cenowego</h3>
                      </div>
     <!--Formularz trzeciej strony-->                 
-                         <form>
+                         
                          <div class="mb-3">
                              <label for="wybor_paliwa3" class="form-label">Wybierz typ paliwa</label>
-                             <select class="form-select" aria-label="Wybór paliwa" id="wybor_paliwa3" required>
+                             <select class="form-select" aria-label="Wybór paliwa" id="wybor_paliwa3" >
                              <option value="benzyna">Benzyna</option>
                              <option value="diesel">Diesel</option>
                              <option value="ev">Elektryczny</option>
@@ -131,21 +117,22 @@
                          </div>
                          <div class="mb-3">
                             <label for="min_cena1" class="form-label">Podaj minimalną cenę</label>
-                            <input type="number" class="form-control" id="min_cena1" placeholder="0" required>
+                            <input type="number" class="form-control" id="min_cena1" placeholder="0" >
                         </div>
                          <div class="mb-3">
                              <label for="max_cena3" class="form-label">Podaj maksymalną cenę</label>
-                             <input type="number" class="form-control" id="max_cena3" placeholder="0" required>
+                             <input type="number" class="form-control" id="max_cena3" placeholder="0" >
                          </div>
                          <div class="col-12">
-                             <button class="btn btn-primary" type="submit" id="price_pool">Wyszukaj</button>
+                             <button class="btn btn-primary"  id="price_pool">Wyszukaj</button>
                            </div>
-                        </form>
-                        <div id="respond3"></div>
+                        
+                        
                 </div>
               </div>
             </div>
           </div>
+          
 <br>
           <div class="text-center fst-italic">
             <h3>Baza wiedzy</h3>
@@ -171,12 +158,39 @@ cena('Skoda Fabia', 70000).<br>
 <br>
 ekologiczne(Nazwa, Paliwo, Miejsca, MaxCena) :- paliwo(Nazwa, Paliwo), emisja_spalin(Nazwa, niska), ilosc_miejsc(Nazwa, Miejsca), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena.<br>
 <br>
-rodzinne(Nazwa, Paliwo, MaxCena, Spaliny) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, emisja_spalin(Nazwa, Spaliny).<br>
+rodzinne(Nazwa, Paliwo, MaxCena, Spaliny) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, emisja_spalin(Nazwa, Spaliny), ilosc_miejsc(Nazwa, Liczba), Liczba>2.<br>
 <br>
 auto_z_przedzialu(Nazwa, MaxCena, MinCena, Paliwo) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, cena(Nazwa, CenaAuta), CenaAuta >= MinCena.<br>
           </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
+          <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog">
+            
+              <div class="modal-content">
+            
+                <div class="modal-header">
+            
+                  <h5 class="modal-title" id="exampleModalLabel">Twoja rekomendacja</h5>
+            
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            
+                </div>
+            
+                <div class="modal-body" id="responseModal">
+            
+            
+            
+                </div>
+            
+                
+            
+              </div>
+            
+            </div>
+            
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="tau-prolog.js"></script>
     <script src="app.js"></script>
   </body>
