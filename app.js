@@ -88,7 +88,6 @@ rodzinne(Nazwa, Paliwo, MaxCena, Spaliny) :- paliwo(Nazwa, Paliwo), cena(Nazwa, 
 auto_z_przedzialu(Nazwa, MaxCena, MinCena, Paliwo) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, cena(Nazwa, CenaAuta), CenaAuta >= MinCena.\n \
 ";
 
-console.log(facts);
 session.consult(facts);
 //Dodanie akcji po kliknięciu przycisku na pierwszym formularzu
 document.getElementById('eco').addEventListener('click', function(){
