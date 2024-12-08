@@ -133,36 +133,7 @@
             </div>
           </div>
           
-<br>
-          <div class="text-center fst-italic">
-            <h3>Baza wiedzy</h3>
-            auto('Dacia Logan'). <br>
-auto('BMW X1'). <br>
-auto('Skoda Fabia').<br>
-<br>
-emisja_spalin('Dacia Logan', niska).<br>
-emisja_spalin('BMW X1', wysoka).<br>
-emisja_spalin('Skoda Fabia', niska).<br>
-<br>
-paliwo('Dacia Logan', benzyna).<br>
-paliwo('BMW X1', benzyna).<br>
-paliwo('Skoda Fabia', benzyna).<br>
-<br>
-ilosc_miejsc('Dacia Logan', 2).<br>
-ilosc_miejsc('BMW X1', 5).<br>
-ilosc_miejsc('Skoda Fabia', 5).<br>
-<br>
-cena('Dacia Logan', 50000).<br>
-cena('BMW X1', 200000).<br>
-cena('Skoda Fabia', 70000).<br>
-<br>
-ekologiczne(Nazwa, Paliwo, Miejsca, MaxCena) :- paliwo(Nazwa, Paliwo), emisja_spalin(Nazwa, niska), ilosc_miejsc(Nazwa, Miejsca), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena.<br>
-<br>
-rodzinne(Nazwa, Paliwo, MaxCena, Spaliny) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, emisja_spalin(Nazwa, Spaliny), ilosc_miejsc(Nazwa, Liczba), Liczba>2.<br>
-<br>
-auto_z_przedzialu(Nazwa, MaxCena, MinCena, Paliwo) :- paliwo(Nazwa, Paliwo), cena(Nazwa, CenaAuta), CenaAuta =< MaxCena, cena(Nazwa, CenaAuta), CenaAuta >= MinCena.<br>
-          </div>
-   
+
           <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
             <div class="modal-dialog">
