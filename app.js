@@ -1,8 +1,8 @@
 var session = pl.create(1000);
 
 const facts = "\n\
-auto('Dacia Logan'). \n\
-auto('BMW X1'). \n\
+auto('Dacia Logan'). \n \
+auto('BMW X1'). \n \
 auto('Skoda Fabia').\n \
 auto('Audi A3').\n \
 auto('Audi A4').\n \
@@ -20,14 +20,14 @@ auto('Volvo S40').\n \
 emisja_spalin('Dacia Logan', niska).\n \
 emisja_spalin('BMW X1', wysoka).\n \
 emisja_spalin('Skoda Fabia', niska).\n \
-emisja_spalin('Audi A3', średnia).\n \
+emisja_spalin('Audi A3', srednia).\n \
 emisja_spalin('Audi A4', wysoka).\n \
 emisja_spalin('Chevrolet Spark', niska).\n \
 emisja_spalin('Citroen C3', niska).\n \
-emisja_spalin('Fiat 500', średnia).\n \
-emisja_spalin('Hyundai i30', średnia).\n \
+emisja_spalin('Fiat 500', srednia).\n \
+emisja_spalin('Hyundai i30', srednia).\n \
 emisja_spalin('Honda Accord', wysoka).\n \
-emisja_spalin('Nissan Note', średnia).\n \
+emisja_spalin('Nissan Note', srednia).\n \
 emisja_spalin('Seat Ibiza', niska).\n \
 emisja_spalin('Suzuki Ignis', niska).\n \
 emisja_spalin('Toyota Yaris', niska).\n \
